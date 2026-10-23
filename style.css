@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root { --bg: #090909; --panel: #121212; --panel-light: #1a1a1a; --gold: #f5c451; --gold-dark: #b88625; --text: #f5f5f5; --muted: #999999; --border: rgba(245, 196, 81, 0.2); }
+
+{ box-sizing: border-box; margin: 0; padding: 0; }
+
+body { min-height: 100vh; background: radial-gradient(ellipse at top, #26200f 0%, transparent 48%), var(--bg); color: var(--text); font-family: 'Rajdhani', sans-serif; padding: 20px 14px; }
+
+button, select { font: inherit; }
+
+button { -webkit-tap-highlight-color: transparent; }
+
+.app { width: 100%; max-width: 480px; margin: auto; }
+
+.header { display: flex; align-items: center; gap: 12px; padding: 8px 0 24px; border-bottom: 1px solid var(--border); }
+
+.brand-mark { width: 52px; height: 52px; display: grid; place-items: center; background: linear-gradient(135deg, #ffe6a0, #d19b28); color: #090909; font-family: 'Orbitron', sans-serif; font-size: 20px; font-weight: 900; border-radius: 12px; box-shadow: 0 0 25px rgba(245, 196, 81, 0.16); }
+
+.header h1 { font-family: 'Orbitron', sans-serif; font-size: 16px; letter-spacing: 1px; }
+
+.header h1 span { color: var(--gold); }
+
+.tagline { color: var(--muted); font-size: 11px; letter-spacing: 3px; margin-top: 5px; }
+
+.hero { padding: 34px 0 28px; }
+
+.eyebrow, .section-label { color: var(--gold); font-size: 11px; letter-spacing: 3px; font-weight: 700; }
+
+.hero h2 { font-family: 'Orbitron', sans-serif; font-size: clamp(29px, 8vw, 40px); font-weight: 900; line-height: 1.2; margin: 12px 0; }
+
+.hero h2 span { color: var(--gold); }
+
+.hero-text { color: var(--muted); font-size: 16px; }
+
+.mode-panel, .game-panel, .how-to-play { background: linear-gradient(145deg, #171717, #101010); border: 1px solid var(--border); border-radius: 18px; padding: 18px; margin-bottom: 18px; }
+
+.mode-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+
+.mode-btn { min-height: 68px; background: #1a1a1a; color: var(--muted); border: 1px solid #303030; border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; letter-spacing: 1px; cursor: pointer; }
+
+.mode-icon { font-size: 21px; }
+
+.mode-btn.active { color: var(--gold); border-color: var(--gold); background: rgba(245, 196, 81, 0.07); }
+
+#difficulty-panel { margin-top: 16px; }
+
+#difficulty-panel label { display: block; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 7px; }
+
+#difficulty { width: 100%; min-height: 44px; padding: 0 12px; background: #202020; color: var(--gold); border: 1px solid #373737; border-radius: 8px; outline-color: var(--gold); }
+
+.battle-info { display: grid; grid-template-columns: 1fr 38px 1fr; align-items: center; gap: 8px; }
+
+.player-card { background: #1b1b1b; border: 1px solid #303030; border-radius: 12px; padding: 12px 5px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+
+.player-card.active-player { border-color: var(--gold); background: rgba(245, 196, 81, 0.06); }
+
+.player-symbol { font-family: 'Orbitron', sans-serif; font-size: 25px; font-weight: 900; }
+
+.x-symbol { color: var(--gold); }
+
+.o-symbol { color: #f2f2f2; }
+
+.player-name { font-size: 11px; letter-spacing: 1.5px; color: var(--muted); font-weight: 700; }
+
+.player-score { font-family: 'Orbitron', sans-serif; font-size: 23px; font-weight: 800; }
+
+.versus { text-align: center; color: var(--gold); font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; }
+
+.status-box { margin: 18px 0; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 9px; padding: 8px; background: #1a1a1a; border-radius: 9px; text-align: center; }
+
+.status-box p { font-size: 15px; font-weight: 600; }
+
+.status-dot { flex-shrink: 0; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 10px var(--gold); }
+
+.board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; width: 100%; aspect-ratio: 1; }
+
+.cell { min-width: 0; min-height: 0; border: 1px solid rgba(245, 196, 81, 0.18); border-radius: 13px; background: linear-gradient(145deg, #202020, #151515); color: var(--gold); font-family: 'Orbitron', sans-serif; font-size: clamp(35px, 11vw, 55px); font-weight: 800; cursor: pointer; transition: background 0.18s, border-color 0.18s, transform 0.18s; }
+
+.cell:active { transform: scale(0.96); }
+
+.cell.o { color: #f4f4f4; }
+
+.cell:disabled { cursor: default; }
+
+.cell.winner { background: rgba(245, 196, 81, 0.17); border-color: var(--gold); box-shadow: inset 0 0 18px rgba(245, 196, 81, 0.08); }
+
+.game-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 17px; }
+
+.primary-btn, .secondary-btn { min-height: 47px; padding: 10px 6px; border-radius: 9px; font-size: 11px; font-weight: 800; letter-spacing: 1px; cursor: pointer; }
+
+.primary-btn { background: linear-gradient(135deg, #ffe49a, #d6a12e); border: none; color: #111; }
+
+.secondary-btn { color: var(--gold); background: transparent; border: 1px solid var(--border); }
+
+.how-to-play h3 { font-family: 'Orbitron', sans-serif; color: var(--gold); font-size: 13px; letter-spacing: 1.5px; margin-bottom: 16px; }
+
+.rule { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+
+.rule span { color: var(--gold); font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 800; }
+
+.rule p { color: #c5c5c5; font-size: 15px; }
+
+footer { padding: 14px 0 8px; text-align: center; color: #888; font-size: 12px; letter-spacing: 1px; }
+
+.footer-tagline { color: var(--gold-dark); font-size: 10px; margin-top: 6px; letter-spacing: 3px; }
+
+button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+@media (max-width: 360px) { body { padding: 14px 10px; }
+
+.mode-panel, .game-panel, .how-to-play { padding: 13px; }
+
+.header h1 { font-size: 13px; }
+
+.game-actions { grid-template-columns: 1fr; } }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
+
